@@ -19,15 +19,14 @@
 
 
 enum planck_layers {
+  _DVORAK,
   _QWERTY,
   _COLEMAK,
-  _DVORAK,
   _LOWER,
   _RAISE,
   _PLOVER,
   _ADJUST,
   _NUMPAD,
-  _MACROS
 };
 
 enum planck_keycodes {
@@ -36,13 +35,12 @@ enum planck_keycodes {
   DVORAK,
   PLOVER,
   BACKLIT,
-  EXT_PLV
+  EXT_PLV,
 };
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
-#define NUMPAD MO(_NUMPAD)
-#define MACROS MO(_MACROS)
+#define NUMPAD TG(_NUMPAD)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -97,7 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC,
     KC_ESC,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_SLSH,
     KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_ENT,
-    KC_LGUI, KC_LCTL, KC_LALT, KC_RSFT, LOWER,   KC_LEAD,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_LGUI, KC_LCTL, KC_LALT, KC_LEAD, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 ),
 
 /* Lower
@@ -133,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
     KC_DEL,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_MINS, KC_EQL,  KC_LBRC, KC_RBRC, KC_BSLS,
     _______, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______,
-    MACROS, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 [_NUMPAD] = LAYOUT_planck_grid(
@@ -143,12 +141,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     DVORAK,  _______, _______, _______, LOWER,   KC_BSPC, KC_SPC,  RAISE,  KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT 
 ),
 
-[_MACROS] = LAYOUT_planck_grid(
-    _______,  _______,   _______,   _______,   _______, _______, _______, _______, _______,  _______,  _______,  _______,
-    _______,  _______,   _______,   _______,   _______, _______, _______, _______, _______, _______,  _______, _______,
-    _______, _______,   _______,   _______,   _______,  _______,  _______,  _______, _______, _______,  _______, _______,
-    DVORAK,  _______, _______, _______, _______,   _______, _______,  _______,  _______, _______, _______,   _______ 
-),
 
 /* Plover layer (http://opensteno.org)
  * ,-----------------------------------------------------------------------------------.
@@ -344,15 +336,23 @@ void matrix_scan_user(void) {
     leading = false;
     leader_end();
 
-    SEQ_ONE_KEY(KC_F) {
+    SEQ_ONE_KEY(KC_P) {
       // Anything you can do in a macro.
-      SEND_STRING("QMK is awesome.");
+      SEND_STRING("May2021beabetteryear!");
     }
-    SEQ_TWO_KEYS(KC_C, KC_C) {
-      SEND_STRING(SS_LCTL("a") SS_LCTL("c"));
+    SEQ_ONE_KEY(KC_C) {
+      // Anything you can do in a macro.
+      SEND_STRING("C8CircuitBreaker!@3");
     }
-    SEQ_TWO_KEYS(KC_D, KC_G) {
-      SEND_STRING("https://start.duckduckgo.com\n");
+    SEQ_ONE_KEY(KC_T) {
+      // Anything you can do in a macro.
+      SEND_STRING("1toonarmy0U");
+    }
+    SEQ_ONE_KEY(KC_E) {
+      SEND_STRING("joel_poh_weinan@moe.edu.sg");
+    }
+    SEQ_TWO_KEYS(KC_I, KC_C) {
+      SEND_STRING("S8615157Z");
     }
   }
 #ifdef AUDIO_ENABLE
