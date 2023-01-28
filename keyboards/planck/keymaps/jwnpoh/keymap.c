@@ -106,7 +106,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // [_DVORAK] = LAYOUT_planck_grid(KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, KC_LEAD, KC_DEL, KC_F, KC_G, KC_C, KC_R, KC_L, KC_A, KC_O, KC_E, KC_U, KC_I, _______, _______, KC_D, KC_H, KC_T, KC_N, KC_S, KC_SCLN, KC_Q, KC_J, KC_K, KC_X, KC_GRV, KC_BSLS, KC_B, KC_M, KC_W, KC_V, KC_Z, MT(MOD_LCTL, KC_ESC), KC_TAB, KC_LGUI, KC_LSFT, KC_BSPC, LOWER, KC_LALT, KC_SPC, RAISE, KC_MINS, KC_SLSH, KC_ENT),
 
     // from qmk configurator
-    [_DVORAK] = LAYOUT_planck_grid(KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, LCTL(KC_C), LCTL(KC_X), KC_F, KC_G, KC_C, KC_R, KC_L, KC_A, KC_O, KC_E, KC_U, KC_I, LCTL(KC_V), LCTL(KC_Z), KC_D, KC_H, KC_T, KC_N, KC_S, KC_SCLN, KC_Q, KC_J, KC_K, KC_X, KC_GRV, KC_BSLS, KC_B, KC_M, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), LALT_T(KC_TAB), KC_LGUI, TD(TD_SFT_CAPS), KC_BSPC, MO(_LOWER), KC_LEAD, KC_SPC, MO(_NEW), KC_MINS, KC_SLSH, LALT_T(KC_ENT)),
+   // [_DVORAK] = LAYOUT_planck_grid(KC_QUOT, KC_COMM, KC_DOT, KC_P, KC_Y, LCTL(KC_C), LCTL(KC_X), KC_F, KC_G, KC_C, KC_R, KC_L, KC_A, KC_O, KC_E, KC_U, KC_I, LCTL(KC_V), LCTL(KC_Z), KC_D, KC_H, KC_T, KC_N, KC_S, KC_SCLN, KC_Q, KC_J, KC_K, KC_X, KC_GRV, KC_BSLS, KC_B, KC_M, KC_W, KC_V, KC_Z, LCTL_T(KC_ESC), LALT_T(KC_TAB), KC_LGUI, TD(TD_SFT_CAPS), KC_BSPC, MO(_LOWER), KC_LEAD, KC_SPC, MO(_NEW), KC_MINS, KC_SLSH, LALT_T(KC_ENT)),
+   [_DVORAK] = LAYOUT_planck_grid(
+                       KC_GRV, KC_QUOT,        KC_COMM,        KC_DOT,  KC_P,            KC_Y,      KC_F,   KC_G,     KC_C,    KC_R,    KC_L,          KC_LEAD,
+                       KC_LCTL, KC_A,           KC_O,           KC_E,    KC_U,            KC_I,      KC_D,   KC_H,     KC_T,    KC_N,    KC_S,          KC_RALT,
+                       KC_ESC,     KC_SCLN,   KC_Q,           KC_J,    KC_K,            KC_X,      KC_B,   KC_M,     KC_W,    KC_V,    KC_Z,          KC_ENT,   
+                       MO(_LOWER), KC_LALT, KC_TAB, KC_LGUI, TD(TD_SFT_CAPS), KC_BSPC,   KC_SPC, MO(_NEW), KC_MINS, KC_SLSH, LALT_T(KC_ENT), KC_BSLS
+            ),
 
     /* Lower
      * ,-----------------------------------------------------------------------------------.
@@ -122,7 +128,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // [_LOWER] = LAYOUT_planck_grid(KC_TILD, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC, KC_DEL, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE, KC_CAPSLOCK, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, S(KC_NUHS), S(KC_NUBS), KC_HOME, KC_END, _______, NUMPAD, _______, _______, _______, _______, _______, _______, _______, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT),
 
     // from qmk configurator
-    [_LOWER] = LAYOUT_planck_grid(KC_NO, KC_LT, KC_GT, KC_ASTR, KC_DLR, KC_NO, KC_NO, KC_PGUP, KC_LT, KC_GT, KC_LPRN, KC_RPRN, KC_EXLM, KC_PLUS, KC_COLN, KC_EQL, KC_NO, KC_NO, KC_NO, KC_PGDN, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_SCLN, KC_MINS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, RAISE, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, MO(_ADJUST), KC_NO, KC_HOME, KC_END),
+    [_LOWER] = LAYOUT_planck_grid(RESET,   KC_NO,   KC_LT,   KC_GT,  KC_ASTR, KC_DLR, KC_NO, KC_LT, KC_GT, KC_LPRN, KC_RPRN, KC_PGUP,
+                                  KC_EXLM, KC_PLUS, KC_COLN, KC_EQL, KC_NO,   KC_NO,  KC_NO, KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR,KC_PGDN,
+                                  KC_SCLN, KC_MINS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT,
+                                  KC_NO, RAISE, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, MO(_ADJUST), KC_NO, KC_HOME, KC_END),
 
     /* Raise
      * ,-----------------------------------------------------------------------------------.
@@ -135,11 +144,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |      |      |      |      |      |             |      | Next | Vol- | Vol+ | Play |
      * `-----------------------------------------------------------------------------------'
      */
-    // [_RAISE] = LAYOUT_planck_grid(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, KC_DEL, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, _______, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY),
-    [_RAISE] = LAYOUT_planck_grid(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, KC_DEL, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, _______, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______, _______, KC_VOLD, KC_VOLU, _______, _______, _______, _______, _______, _______, _______, _______, KC_MPLY),
+    [_RAISE] = LAYOUT_planck_grid(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, KC_DEL, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, _______, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY),
+    // [_RAISE] = LAYOUT_planck_grid(KC_GRV, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, KC_DEL, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_MINS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, _______, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, KC_NUHS, KC_NUBS, KC_PGUP, KC_PGDN, _______, _______, KC_VOLD, KC_VOLU, _______, _______, _______, _______, _______, _______, _______, _______, KC_MPLY),
 
     // from qmk configurator
-    [_NEW] = LAYOUT_planck_grid(KC_NO, KC_NO, KC_UP, KC_NO, KC_F7, KC_F8, KC_F9, KC_F10, KC_7, KC_8, KC_9, KC_SLSH, KC_NO, KC_LEFT, KC_DOWN, KC_RIGHT, KC_F4, KC_F5, KC_F6, KC_F11, KC_4, KC_5, KC_6, KC_MINS, KC_NO, KC_NO, KC_NO, KC_NO, KC_F1, KC_F2, KC_F3, KC_F12, KC_1, KC_2, KC_3, KC_PLUS, KC_NO, KC_NO, KC_NO, KC_NO, KC_DEL, MO(_LOWER), KC_NO, KC_NO, KC_TRNS, KC_NO, KC_0, KC_EQL),
+    // [_NEW] = LAYOUT_planck_grid(RESET, KC_NO, KC_UP, KC_NO, KC_F7, KC_F8, KC_F9, KC_F10, KC_7, KC_8, KC_9, KC_SLSH, KC_NO, KC_LEFT, KC_DOWN, KC_RIGHT, KC_F4, KC_F5, KC_F6, KC_F11, KC_4, KC_5, KC_6, KC_MINS, KC_NO, KC_NO, KC_NO, KC_NO, KC_F1, KC_F2, KC_F3, KC_F12, KC_1, KC_2, KC_3, KC_PLUS, KC_NO, KC_NO, KC_NO, KC_NO, KC_DEL, MO(_LOWER), KC_NO, KC_NO, KC_TRNS, KC_NO, KC_0, KC_EQL),
+    [_NEW] = LAYOUT_planck_grid(KC_NO, KC_NO,   KC_HOME, KC_UP,    KC_END,  KC_PGUP, KC_NO,  KC_7,    KC_8,  KC_9,  KC_NO, KC_NO,
+                                KC_NO, KC_NO,   KC_LEFT, KC_DOWN,  KC_RIGHT,KC_PGDN, KC_NO,  KC_4,    KC_5,  KC_6, KC_NO, KC_MINS, 
+                                KC_NO, KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_NO,   KC_NO,  KC_1,    KC_2,  KC_3, KC_NO, KC_PLUS, 
+                                KC_NO, KC_NO,   KC_NO,   KC_NO,    KC_NO,   KC_DEL,  KC_NO,  KC_TRNS, KC_NO, KC_0, KC_EQL, KC_ENT),
 
     /* Plover layer (http://opensteno.org)
      * ,-----------------------------------------------------------------------------------.
